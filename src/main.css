@@ -1,0 +1,17 @@
+video {
+  width: 800px;
+  height: 450px;
+  border: 1px solid #000;
+}
+
+div {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+button {
+  display: inline-block;
+  margin-left: 1rem;
+  font-size: 2rem;
+}
