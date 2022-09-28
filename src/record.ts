@@ -3,9 +3,7 @@ export function record(
   duration: number,
   filename: string
 ) {
-  const recorder = new MediaRecorder(videoEl.srcObject as MediaStream, {
-    mimeType: "video/webm;codecs=vp9",
-  });
+  const recorder = new MediaRecorder(videoEl.srcObject as MediaStream);
   console.log("recording", videoEl.srcObject, "codecs:", recorder.mimeType);
   const chunks: Blob[] = [];
   recorder.ondataavailable = (e) => {
@@ -15,12 +13,7 @@ export function record(
     }
   };
   recorder.onstop = () => {
-    downloadBlob(
-      new Blob(chunks, {
-        type: chunks[0].type,
-      }),
-      filename
-    );
+    downloadBlob(new Blob(chunks), filename);
   };
   recorder.start(0);
 
